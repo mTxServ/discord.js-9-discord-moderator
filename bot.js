@@ -25,7 +25,7 @@ fs.readdir('./events/', (err, files) => {
         const { once } = eventFunction;
 
         try {
-            emitter[once ? 'once' : 'on'](event, (...args) => eventFunction.run(...args));
+            emitter[once ? 'once' : 'on'](event, (...args) => eventFunction.run(client, ...args));
         } catch (error) {
             console.error(error.stack);
         }
